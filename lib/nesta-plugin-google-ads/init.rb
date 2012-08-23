@@ -5,6 +5,8 @@ module Nesta
         def google_ad options={}
           opts = Nesta::Config.google_ad.merge(options)
 
+          STDOUT.puts opts.inspect
+
           # all options are required for the add to work correctly
           %{
           <script type="text/javascript"><!--
