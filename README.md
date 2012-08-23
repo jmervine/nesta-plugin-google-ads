@@ -1,6 +1,6 @@
 # Nesta::Plugin::Google::Ads
 
-TODO: Write a gem description
+Include google ads in your Nesta CMS applciation.
 
 ## Installation
 
@@ -18,7 +18,33 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+1. Update your configs. [optional if you're passing params to helper, see below]
+
+    # config/config.yml
+    # this sets default which can be overriden in your helper
+    # call
+    google_ad:
+      client: google_client_id
+      slot:   google_ad_slot_id
+      width:  google_ad_width
+      height: google_ad_height
+
+2. Add helper method to your layout.haml or where you want it.
+
+    # views/layout.haml
+    -#- ... layout contents ...
+
+    = google_ad
+
+    -#- ... layout contents ...
+
+> 'google_ad' helper also takes a hash of google_ad keys, which will
+> override defaults set in config/config.yml.
+>
+> Example:
+> 
+>     = google_ad( "width" => 200, "height" => 200 )
+
 
 ## Contributing
 
