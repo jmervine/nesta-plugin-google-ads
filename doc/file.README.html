@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>
+  File: README
+  
+    &mdash; Documentation by YARD 0.8.2.1
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!" + escape(window.location.href);
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index</a> &raquo; 
+    <span class="title">File: README</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><div id='filecontents'><h1>Nesta::Plugin::Google::Ads</h1>
+
+<p>Include google ads in your Nesta CMS applciation.</p>
+
+<h2>Installation</h2>
+
+<p>Add this line to your application's Gemfile:</p>
+
+<pre class="code ruby"><code><span class='id identifier rubyid_gem'>gem</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>nesta-plugin-google-ads</span><span class='tstring_end'>'</span></span>
+</code></pre>
+
+<p>And then execute:</p>
+
+<pre class="code ruby"><code>$ bundle
+</code></pre>
+
+<p>Or install it yourself as:</p>
+
+<pre class="code ruby"><code>$ gem install nesta-plugin-google-ads
+</code></pre>
+
+<h2>Usage</h2>
+
+<ol>
+<li><p>Update your configs. [optional if you're passing params to helper, see below]</p>
+
+<p> # config/config.yml
+ # this sets default which can be overriden in your helper
+ # call
+ google_ad:
+   client: google_client_id
+   slot:   google_ad_slot_id
+   width:  google_ad_width
+   height: google_ad_height</p></li>
+<li><p>Add helper method to your layout.haml or where you want it.</p>
+
+<p> # views/layout.haml
+ -#- ... layout contents ...</p>
+
+<p> = google_ad</p>
+
+<p> -#- ... layout contents ...</p></li>
+</ol>
+
+
+<blockquote><p>'google_ad' helper also takes a hash of google_ad keys, which will
+override defaults set in config/config.yml.</p>
+
+<p>Example:</p>
+
+<pre class="code ruby"><code>= google_ad( &quot;width&quot; =&gt; 200, &quot;height&quot; =&gt; 200 )
+</code></pre></blockquote>
+
+<h2>Contributing</h2>
+
+<ol>
+<li>Fork it</li>
+<li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li>
+<li>Commit your changes (<code>git commit -am 'Added some feature'</code>)</li>
+<li>Push to the branch (<code>git push origin my-new-feature</code>)</li>
+<li>Create new Pull Request</li>
+</ol>
+
+</div></div>
+
+    <div id="footer">
+  Generated on Thu Aug 23 15:12:10 2012 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.2.1 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>
