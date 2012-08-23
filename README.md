@@ -106,7 +106,6 @@ Or install it yourself as:
 
 #### Multiple Ads
 
-
         # file: views/index.haml
           1 #header
           2   %h1#logo

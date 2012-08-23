@@ -87,22 +87,24 @@
 <ol>
 <li><p>Update your configs. [optional if you're passing params to helper, see below]</p>
 
-<p> # config/config.yml
+<pre class="code ruby"><code> # config/config.yml
  # this sets default which can be overriden in your helper
  # call
  google_ad:
    client: google_client_id
    slot:   google_ad_slot_id
    width:  google_ad_width
-   height: google_ad_height</p></li>
+   height: google_ad_height
+</code></pre></li>
 <li><p>Add helper method to your layout.haml or where you want it.</p>
 
-<p> # views/layout.haml
- -#- ... layout contents ...</p>
+<pre class="code ruby"><code> # views/layout.haml
+ -#- ... layout contents ...
 
-<p> = google_ad</p>
+ = google_ad
 
-<p> -#- ... layout contents ...</p></li>
+ -#- ... layout contents ...
+</code></pre></li>
 </ol>
 
 
@@ -111,8 +113,89 @@ override defaults set in config/config.yml.</p>
 
 <p>Example:</p>
 
-<pre class="code ruby"><code>= google_ad( &quot;width&quot; =&gt; 200, &quot;height&quot; =&gt; 200 )
+<pre class="code ruby"><code>  = google_ad( &quot;width&quot; =&gt; 200, &quot;height&quot; =&gt; 200 )
 </code></pre></blockquote>
+
+<h2>Examples</h2>
+
+<h3>Postal3</h3>
+
+<h4>Menu Ad</h4>
+
+<pre class="code ruby"><code>    # file: views/index.haml
+      1 #header
+      2   %h1#logo
+      3     %a{ :href =&gt; &quot;/&quot; }= @heading
+      4     %small= no_widow @subtitle
+      5 
+      6 #sidebar
+      7   = haml :categories, :layout =&gt; false
+      8   = haml :feed, :layout =&gt; false
+      9   = haml :about, :layout =&gt; false
+     10   = google_ad
+     11 
+     12 #content
+     13   - @articles.each do |article| 
+     14     = haml :summary, :layout =&gt; false, :locals =&gt; { :article =&gt; article, :heading =&gt; :h2 }
+</code></pre>
+
+<h4>Top Ad</h4>
+
+<pre class="code ruby"><code>    # file: views/index.haml
+      1 #header
+      2   %h1#logo
+      3     %a{ :href =&gt; &quot;/&quot; }= @heading
+      4     %small= no_widow @subtitle
+      5 
+      6 #sidebar
+      7   = haml :categories, :layout =&gt; false
+      8   = haml :feed, :layout =&gt; false
+      9   = haml :about, :layout =&gt; false
+     10 
+     11 #content
+     12   = google_ad
+     13   - @articles.each do |article| 
+     14     = haml :summary, :layout =&gt; false, :locals =&gt; { :article =&gt; article, :heading =&gt; :h2 }
+</code></pre>
+
+<h4>Bottom Ad</h4>
+
+<pre class="code ruby"><code>    # file: views/index.haml
+      1 #header
+      2   %h1#logo
+      3     %a{ :href =&gt; &quot;/&quot; }= @heading
+      4     %small= no_widow @subtitle
+      5 
+      6 #sidebar
+      7   = haml :categories, :layout =&gt; false
+      8   = haml :feed, :layout =&gt; false
+      9   = haml :about, :layout =&gt; false
+     10 
+     11 #content
+     12   - @articles.each do |article| 
+     13     = haml :summary, :layout =&gt; false, :locals =&gt; { :article =&gt; article, :heading =&gt; :h2 }
+     14   = google_ad
+</code></pre>
+
+<h4>Multiple Ads</h4>
+
+<pre class="code ruby"><code>    # file: views/index.haml
+      1 #header
+      2   %h1#logo
+      3     %a{ :href =&gt; &quot;/&quot; }= @heading
+      4     %small= no_widow @subtitle
+      5 
+      6 #sidebar
+      7   = haml :categories, :layout =&gt; false
+      8   = haml :feed, :layout =&gt; false
+      9   = haml :about, :layout =&gt; false
+     14   = google_ad(&quot;slot&quot; =&gt; 0000000000, &quot;width&quot; =&gt; 200, &quot;height&quot; =&gt; 200)
+     10 
+     11 #content
+     12   - @articles.each do |article| 
+     13     = haml :summary, :layout =&gt; false, :locals =&gt; { :article =&gt; article, :heading =&gt; :h2 }
+     14   = google_ad
+</code></pre>
 
 <h2>Contributing</h2>
 
@@ -127,7 +210,7 @@ override defaults set in config/config.yml.</p>
 </div></div>
 
     <div id="footer">
-  Generated on Thu Aug 23 15:12:10 2012 by
+  Generated on Thu Aug 23 15:53:22 2012 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.2.1 (ruby-1.9.3).
 </div>
